@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.text.Layout;
 import android.text.TextPaint;
 import android.util.Log;
 import android.view.View;
@@ -16,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,8 +39,7 @@ public class HomeActivity extends FragmentActivity {
 
     private TabbarFragment tabbarFragment;
     private CardFragment cardFragment;
-    private Button jumpToDetail;
-    private FragmentManager fragmentManager;
+    private RelativeLayout cardLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,27 +54,11 @@ public class HomeActivity extends FragmentActivity {
 
         AndroidNetworking.initialize(getApplicationContext());
         getContent();
-        // 测试文本
-//        jumpToDetail=findViewById(R.id.jump_to_detail);
-//        jumpToDetail.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent();
-//                intent.setClass(HomeActivity.this, DetailActivity.class);
-//                startActivity(intent);
-//            }
-//        });
+
+
 
     }
 
-//    @Override
-//    protected void onStart() {
-//        super.onStart();
-//        TextView content =  findViewById(R.id.card_content);
-//        content.setTypeface(Typeface.createFromAsset(getAssets(),"simsun.ttc"));
-//        TextPaint tp = content.getPaint();
-//        tp.setFakeBoldText(true);
-//    }
 
     private void getContent(){
 
@@ -100,6 +85,16 @@ public class HomeActivity extends FragmentActivity {
                             setFont();
 
 
+                            cardLayout = findViewById(R.id.card_layout);
+                            cardLayout.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    Intent intent = new Intent();
+                                    intent.setClass(HomeActivity.this, DetailActivity.class);
+                                    startActivity(intent);
+                                }
+                            });
+
                         }catch (JSONException e){
                             e.printStackTrace();
                             Toast.makeText(HomeActivity.this, "Data error!", Toast.LENGTH_SHORT).show();
@@ -111,7 +106,6 @@ public class HomeActivity extends FragmentActivity {
                         Toast.makeText(HomeActivity.this,"Network error!", Toast.LENGTH_SHORT).show();
                     }
                 });
-
     }
 
     private void setFont(){

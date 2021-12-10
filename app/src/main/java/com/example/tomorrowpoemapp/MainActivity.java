@@ -24,18 +24,19 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         tomorrowPoemTitle=findViewById(R.id.tomorrow_poem_title);
         tomorrowPoemTitle.setTypeface(Typeface.createFromAsset(getAssets(),"simsun.ttc"));
+//      APP打开的界面
+//        delay();
 
-        delay();
-
-//        mainActivity=findViewById(R.id.main_activity);
-//        mainActivity.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent();
-//                intent.setClass(MainActivity.this, BookActivity.class);
-//                startActivity(intent);
-//            }
-//        });
+        mainActivity=findViewById(R.id.main_activity);
+        mainActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                //跳转到测试界面
+                intent.setClass(MainActivity.this, HomeActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
