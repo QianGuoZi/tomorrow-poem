@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TabbarFragment"
+    android:orientation="horizontal"
+    android:background="@color/tabbar_bgc">
+
+    <TextView
+        android:id="@+id/tab_home"
+        android:drawableTop="@drawable/tab_home"
+        android:text="@string/tab_home"
+        style="@style/tab_style"
+        />
+
+    <TextView
+        android:id="@+id/tab_gift"
+        android:drawableTop="@drawable/tab_gift"
+        android:text="@string/tab_gift"
+        style="@style/tab_style"
+        />
+
+    <TextView
+        android:id="@+id/tab_book"
+        android:drawableTop="@drawable/tab_book"
+        android:text="@string/tab_book"
+        style="@style/tab_style"
+        />
+
+    <TextView
+        android:id="@+id/tab_user"
+        android:drawableTop="@drawable/tab_user"
+        android:text="@string/tab_user"
+        style="@style/tab_style"
+        />
+
+</LinearLayout>

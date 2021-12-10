@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">明日之诗</string>
+    <string name="tab_home">主页</string>
+    <string name="tab_gift">抽卡</string>
+    <string name="tab_book">藏诗阁</string>
+    <string name="tab_user">我的</string>
+    <string name="note">注释</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--  CardFragment  -->
+    <string name="star_collection">收集度</string>
+    <string name="card_deleted">取消</string>
+</resources>

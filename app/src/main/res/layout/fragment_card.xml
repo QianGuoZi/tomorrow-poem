@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/card"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/background">
+
+        <RelativeLayout
+            android:id="@+id/card_layout"
+            android:layout_width="350dp"
+            android:layout_height="570dp"
+            android:layout_marginRight="4dp"
+            android:layout_marginBottom="4dp"
+            android:layout_marginLeft="1dp"
+            android:layout_marginTop="1dp"
+            android:background="@drawable/card_background"
+            android:elevation="10dp"
+            android:translationZ="5dp"
+            tools:context=".CardFragment">
+
+            <TextView
+                android:id="@+id/card_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="80dp"
+                android:lineHeight="50dp"
+                android:text="床前明月光\n疑是地上霜"
+                android:textStyle="bold"
+                android:textColor="@color/card_content"
+                android:textSize="30sp" />
+
+            <com.example.tomorrowpoemapp.HorizontalListView
+                android:id="@+id/star_list"
+                android:layout_width="175dp"
+                android:layout_height="35dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+
+    <View
+        android:id="@+id/card_line"
+        android:layout_width="3dp"
+        android:layout_height="80dp"
+        android:layout_below="@id/card"
+        android:layout_centerHorizontal="true"
+        android:background="@color/card_line"
+        android:visibility="visible"></View>
+
+    <ImageView
+        android:id="@+id/card_delete"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_below="@id/card_line"
+        android:layout_centerHorizontal="true"
+        android:contentDescription="@string/card_deleted"
+        android:src="@mipmap/card_delete"
+        android:visibility="visible"></ImageView>
+
+
+</RelativeLayout>
