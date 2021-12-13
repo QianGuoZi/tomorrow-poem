@@ -4,8 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="@color/appBackground"
     tools:context=".HomeActivity">
+
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/cardViewPager"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="130dp"/>
 
     <FrameLayout
         android:id="@+id/tabbar_fragment"
@@ -14,6 +22,12 @@
         android:layout_alignParentBottom="true">
     </FrameLayout>
 
+
+
+
+</RelativeLayout>
+
+<!--
     <FrameLayout
         android:id="@+id/card_fragment"
         android:layout_width="wrap_content"
@@ -21,5 +35,4 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true">
     </FrameLayout>
-
-</RelativeLayout>
+-->

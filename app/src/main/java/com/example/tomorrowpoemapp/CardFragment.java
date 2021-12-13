@@ -72,7 +72,7 @@ public class CardFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        contentView = getActivity().findViewById(R.id.card_content);
+//        contentView = getActivity().findViewById(R.id.card_content);
 //        contentView.setType(Typeface.createFromAsset(getAssets(),"simsun.ttc"));
         if (getArguments() != null) {
             content = getArguments().getString(CONTENT);
@@ -107,6 +107,8 @@ public class CardFragment extends Fragment {
             cardLine = (View) view.findViewById(R.id.card_line);
             cardLine.setVisibility(View.INVISIBLE);
         }
+        cardContent = (TextView) view.findViewById(R.id.card_content);
+        cardContent.setText(content);
         starList = view.findViewById(R.id.star_list);
         simpleAdapter = new SimpleAdapter(getActivity(),getData(),
                 R.layout.card_star,new String[]{"image"},new int[]{R.id.star});
