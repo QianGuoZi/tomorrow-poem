@@ -3,6 +3,8 @@ package com.example.tomorrowpoemapp;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -19,6 +21,10 @@ public class TabbarFragment extends Fragment {
 
     private TextView tabBook,tabHome,tabUser,tabGift;
 
+    private static final String ARG_TYPE = "type";
+
+    private Integer type;
+
     public TabbarFragment() {
         // Required empty public constructor
     }
@@ -30,9 +36,10 @@ public class TabbarFragment extends Fragment {
      * @return A new instance of fragment TabbarFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static TabbarFragment newInstance() {
+    public static TabbarFragment newInstance(Integer i) {
         TabbarFragment fragment = new TabbarFragment();
         Bundle args = new Bundle();
+        args.putInt(ARG_TYPE, i);
         fragment.setArguments(args);
         return fragment;
     }
@@ -41,8 +48,39 @@ public class TabbarFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-
+            type = getArguments().getInt(ARG_TYPE);
         }
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        if (getArguments() != null) {
+            type = getArguments().getInt(ARG_TYPE);
+        }
+        System.out.println(type);
+        setDefault();
+        switch (type){
+            case 1:
+                tabHome.setSelected(true);
+                break;
+            case 2:
+                tabGift.setSelected(true);
+                break;
+            case 3:
+                tabBook.setSelected(true);
+                break;
+            case 4:
+                tabUser.setSelected(true);
+                break;
+        }
+    }
+
+    private void setDefault() {
+        tabBook.setSelected(false);
+        tabGift.setSelected(false);
+        tabHome.setSelected(false);
+        tabUser.setSelected(false);
     }
 
     @Override
@@ -57,6 +95,8 @@ public class TabbarFragment extends Fragment {
                 Intent intent = new Intent();
                 intent.setClass(getActivity(), BookActivity.class);
                 startActivity(intent);
+//                setDefault();
+//                tabBook.setSelected(true);
             }
         });
 
@@ -67,6 +107,8 @@ public class TabbarFragment extends Fragment {
                 Intent intent = new Intent();
                 intent.setClass(getActivity(), HomeActivity.class);
                 startActivity(intent);
+//                setDefault();
+//                tabHome.setSelected(true);
             }
         });
 
@@ -77,6 +119,8 @@ public class TabbarFragment extends Fragment {
                 Intent intent = new Intent();
                 intent.setClass(getActivity(), GiftActivity.class);
                 startActivity(intent);
+//                setDefault();
+//                tabGift.setSelected(true);
             }
         });
 
@@ -87,6 +131,8 @@ public class TabbarFragment extends Fragment {
                 Intent intent = new Intent();
                 intent.setClass(getActivity(), UserActivity.class);
                 startActivity(intent);
+//                setDefault();
+//                tabUser.setSelected(true);
             }
         });
 

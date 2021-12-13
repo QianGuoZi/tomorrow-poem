@@ -17,7 +17,7 @@ public class BookActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book);
 
-        tabbarFragment=TabbarFragment.newInstance();
+        tabbarFragment=TabbarFragment.newInstance(3);
         getSupportFragmentManager().beginTransaction().add(R.id.tabbar_fragment, tabbarFragment).commit();
 
         searchResultFragment = SearchResultFragment.newInstance("静夜思","李白",3);

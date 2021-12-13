@@ -14,8 +14,8 @@
     <color name="main_bgc">#FFFEFB</color>
     <!-- TabbarFragment -->
     <color name="tabbar_bgc">#373834</color>
-    <color name="tabbar_text">#FFFFFF</color>
-    <color name="tabbar_text_selected">#F4F2D1</color>
+    <color name="tabbar_text">#B5B0B0</color>
+    <color name="tabbar_text_selected">#FFFFFF</color>
     <!-- NoteFragment -->
     <color name="note_title_text">#1A1B19</color>
     <color name="note_content_text">#1A1B19</color>

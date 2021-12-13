@@ -48,7 +48,7 @@ public class HomeActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        tabbarFragment=TabbarFragment.newInstance();
+        tabbarFragment=TabbarFragment.newInstance(1);
         getSupportFragmentManager().beginTransaction().add(R.id.tabbar_fragment, tabbarFragment).commit();
 
 
