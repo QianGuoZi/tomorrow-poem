@@ -33,9 +33,9 @@
                 android:layout_marginTop="80dp"
                 android:lineHeight="50dp"
                 android:text="床前明月光\n疑是地上霜"
-                android:textStyle="bold"
                 android:textColor="@color/card_content"
-                android:textSize="30sp" />
+                android:textSize="30sp"
+                android:textStyle="bold" />
 
             <com.example.tomorrowpoemapp.HorizontalListView
                 android:id="@+id/star_list"

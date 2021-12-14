@@ -51,6 +51,11 @@ public class HomeActivity extends FragmentActivity {
     private ArrayList<Fragment> cardList;
     private ViewPagerAdapter viewPagerAdapter;
 
+
+    private Integer status;
+    private String msg;
+    private JSONArray data;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -80,9 +85,9 @@ public class HomeActivity extends FragmentActivity {
                         // do anything with response
                         try{
                             //处理获取的结果
-                            Integer status = response.getInt("status");
-                            String msg = response.getString("msg");
-                            JSONArray data = response.getJSONArray("data");
+                            status = response.getInt("status");
+                            msg = response.getString("msg");
+                            data = response.getJSONArray("data");
                             Log.d("status",status.toString());
                             Log.d("msg",msg);
                             Log.d("data",data.toString());
@@ -156,12 +161,22 @@ public class HomeActivity extends FragmentActivity {
     private void setListener(){
         cardLayout = findViewById(R.id.card_layout);
         Log.d("cardLayout",cardLayout.toString());
+        //到这了
 
         cardLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();
                 intent.setClass(HomeActivity.this, DetailActivity.class);
+                Integer cPos = viewPagerAdapter.getCurrentPos();
+                Integer id = null;
+                try {
+                    id = data.getJSONObject(cPos).getInt("id");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                intent.putExtra("id",id);
+                Log.d("idTrans",id.toString());
                 startActivity(intent);
             }
         });
@@ -177,6 +192,15 @@ public class HomeActivity extends FragmentActivity {
             public void onClick(View view) {
                 Intent intent = new Intent();
                 intent.setClass(HomeActivity.this, DetailActivity.class);
+                Integer cPos = viewPagerAdapter.getCurrentPos();
+                Integer id = null;
+                try {
+                    id = data.getJSONObject(cPos).getInt("id");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                intent.putExtra("id",id);
+                Log.d("idTrans",id.toString());
                 startActivity(intent);
             }
         });
@@ -195,6 +219,7 @@ public class HomeActivity extends FragmentActivity {
         public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 //            setFont();
             setFontChange(position);
+            setListenerChange(position);
         }
 
         @Override

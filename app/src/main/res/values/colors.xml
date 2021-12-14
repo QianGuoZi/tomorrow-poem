@@ -17,8 +17,15 @@
     <color name="tabbar_text">#B5B0B0</color>
     <color name="tabbar_text_selected">#FFFFFF</color>
     <!-- NoteFragment -->
-    <color name="note_title_text">#1A1B19</color>
-    <color name="note_content_text">#1A1B19</color>
+    <color name="note_title_text">#484946</color>
+    <color name="note_content_text">#777a74</color>
+    <!--  PoemFragment  -->
+    <color name="poem_fragment_title">#42565b</color>
+    <color name="poem_fragment_author">#484946</color>
+    <color name="poem_fragment_content">#484946</color>
+    <!--  GeneralFragment  -->
+    <color name="general_title_text">#484946</color>
+    <color name="general_content_text">#777a74</color>
     <!--  CardFragment  -->
     <color name="card_background">#fffefb</color>
     <color name="card_edge">#f3f3ef</color>
@@ -30,4 +37,7 @@
 
     <!-- HomeActivity -->
     <color name="appBackground">#fffef8</color>
+
+    <!--  DetailActivity  -->
+    <color name="detail_bgc">#fffef8</color>
 </resources>
