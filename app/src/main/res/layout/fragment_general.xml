@@ -14,7 +14,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="20sp"
-        android:textStyle="bold"
         android:textFontWeight="@integer/material_motion_duration_medium_2"
         android:layout_marginTop="15dp"
         android:textColor="@color/general_title_text"
