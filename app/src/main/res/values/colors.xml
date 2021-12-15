@@ -40,4 +40,5 @@
 
     <!--  DetailActivity  -->
     <color name="detail_bgc">#fffef8</color>
+    <color name="detail_title">#5f605d</color>
 </resources>

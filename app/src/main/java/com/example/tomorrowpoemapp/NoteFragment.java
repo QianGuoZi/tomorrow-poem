@@ -1,11 +1,14 @@
 package com.example.tomorrowpoemapp;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,8 +63,20 @@ public class NoteFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         noteContent=view.findViewById(R.id.note_content);
         if (getArguments() != null) {
-            noteContent.setText(getArguments().getString(ARG_CONTENT));
+            Log.d("CONTENT",ARG_CONTENT);
+            if(getArguments().getString(ARG_CONTENT).equals("false")== true){
+                noteContent.setGravity(Gravity.CENTER);
+                Drawable img = getResources().getDrawable(R.mipmap.lock);
+                img.setBounds(0, 0, img.getMinimumWidth(), img.getMinimumHeight());
+                noteContent.setCompoundDrawables(null,img,null,null);
+            }
+            else{
+                noteContent.setText(getArguments().getString(ARG_CONTENT));
+
+            }
         }
+
+
     }
 
     @Override
