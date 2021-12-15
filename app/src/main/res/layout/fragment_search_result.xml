@@ -9,7 +9,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp">
+        android:layout_height="50dp"
+        android:background="@color/searchResuilt_bgc">
         <TextView
             android:id="@+id/title"
             android:layout_width="wrap_content"
@@ -18,7 +19,7 @@
             android:layout_gravity="center"
             android:layout_marginLeft="15dp"
             android:text="静夜思"
-            android:textSize="24dp"
+            android:textSize="18dp"
             android:textColor="@color/fonts"/>
         <TextView
             android:id="@+id/gang"
@@ -28,7 +29,7 @@
             android:layout_toRightOf="@id/title"
             android:layout_gravity="center"
             android:text=" — "
-            android:textSize="24dp"
+            android:textSize="18dp"
             android:textColor="@color/fonts"/>
         <TextView
             android:id="@+id/author"
@@ -38,15 +39,15 @@
             android:layout_toRightOf="@id/gang"
             android:layout_gravity="center"
             android:text="李白"
-            android:textSize="24dp"
+            android:textSize="18dp"
             android:textColor="@color/fonts"/>
 
         <com.example.tomorrowpoemapp.HorizontalListView
             android:id="@+id/star_list"
-            android:layout_width="175dp"
-            android:layout_height="35dp"
-            android:layout_marginRight="10dp"
+            android:layout_width="150dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_alignParentRight="true" />
+            android:layout_marginRight="10dp" />
     </RelativeLayout>
 </FrameLayout>

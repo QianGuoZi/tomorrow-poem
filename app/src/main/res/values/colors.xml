@@ -32,8 +32,9 @@
     <color name="card_line">#575824</color>
     <color name="card_content">#575824</color>
     <color name="background">#e6e5df</color>
-    <!--SerchResultFragment-->
+    <!--SearchResultFragment-->
     <color name="fonts">#616231</color>
+    <color name="searchResuilt_bgc">#f6faff</color>
 
     <!-- HomeActivity -->
     <color name="appBackground">#fffef8</color>
@@ -41,4 +42,13 @@
     <!--  DetailActivity  -->
     <color name="detail_bgc">#fffef8</color>
     <color name="detail_title">#5f605d</color>
+
+
+    <!--  BookActivity  -->
+    <color name="book_title">#f6faff</color>
+    <color name="book_title_bgc">#373834</color>
+    <color name="book_bgc">#fffef8</color>
+    <color name="sort_font">#606060</color>
+    <color name="spinner_bgc">#f6faff</color>
+    <color name="spinner_font">#606060</color>
 </resources>
