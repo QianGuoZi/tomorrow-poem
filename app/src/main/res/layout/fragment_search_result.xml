@@ -8,6 +8,7 @@
     <!-- TODO: Update blank fragment layout -->
 
     <RelativeLayout
+        android:id="@+id/result_RelativeLayout"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@color/searchResuilt_bgc">

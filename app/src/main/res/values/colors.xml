@@ -52,6 +52,8 @@
     <color name="search_block_bgc">#fffef8</color>
     <color name="search_editText_bgc">#f7f7f9</color>
     <color name="search_font">#84848a</color>
+    <color name="search_sure_bgc">#373834</color>
+    <color name="search_sure_font">#fffef8</color>
 
 
     <!--  BookActivity  -->

@@ -1,17 +1,23 @@
 package com.example.tomorrowpoemapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import org.json.JSONException;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -25,6 +31,7 @@ import java.util.Map;
  */
 public class SearchResultFragment extends Fragment {
 
+    private Integer id;
     private String titleS;
     private String authorS;
     private int star = 1;
@@ -32,6 +39,7 @@ public class SearchResultFragment extends Fragment {
     private TextView title;
     private TextView author;
     private HorizontalListView starList;
+    private RelativeLayout resultRelativeLayout;
     SimpleAdapter simpleAdapter;
 
     private TextView cardContent;
@@ -44,10 +52,8 @@ public class SearchResultFragment extends Fragment {
     private static final String TITLE = "title";
     private static final String AUTHOR = "author";
     private static final String STAR = "star";
+    private static final String ID = "id";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
     public SearchResultFragment() {
         // Required empty public constructor
@@ -60,12 +66,14 @@ public class SearchResultFragment extends Fragment {
      * @param title Parameter 1.
      * @param author Parameter 2.
      * @param star Parameter 3.
+     * @param id Parameter 4.
      * @return A new instance of fragment SearchResultFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static SearchResultFragment newInstance(String title, String author, int star) {
+    public static SearchResultFragment newInstance(int id,String title, String author, int star) {
         SearchResultFragment fragment = new SearchResultFragment();
         Bundle args = new Bundle();
+        args.putInt(ID, id);
         args.putString(TITLE, title);
         args.putString(AUTHOR, author);
         args.putInt(STAR,star);
@@ -102,6 +110,7 @@ public class SearchResultFragment extends Fragment {
             titleS = getArguments().getString(TITLE);
             authorS = getArguments().getString(AUTHOR);
             star = getArguments().getInt(STAR);
+            id = getArguments().getInt(ID);
         }
         title = view.findViewById(R.id.result_title);
         author = view.findViewById(R.id.result_author);
@@ -111,7 +120,18 @@ public class SearchResultFragment extends Fragment {
         simpleAdapter = new SimpleAdapter(getActivity(),getData(),
                 R.layout.detail_star,new String[]{"image"},new int[]{R.id.star});
         starList.setAdapter(simpleAdapter);
-
+        resultRelativeLayout = view.findViewById(R.id.result_RelativeLayout);
+        resultRelativeLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getActivity(),"haha",Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent();
+                intent.setClass(getActivity(), DetailActivity.class);
+                intent.putExtra("id",id);
+                Log.d("idTrans",id.toString());
+                startActivity(intent);
+            }
+        });
     }
 
     private List<Map<String,Object>> getData(){

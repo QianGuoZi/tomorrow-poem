@@ -104,7 +104,7 @@ public class HomeActivity extends FragmentActivity {
                                 Log.d("id",i.toString());
                                 Log.d("sentence",data.getJSONObject(i).getString("sentence"));
 
-                                cardList.add(CardFragment.newInstance(data.getJSONObject(i).getString("sentence"),
+                                cardList.add(CardFragment.newInstance(data.getJSONObject(i).getInt("id"),data.getJSONObject(i).getString("sentence"),
                                         data.getJSONObject(i).getInt("star"),true));
                             }
                             Log.d("cardList",cardList.toString());
@@ -113,7 +113,7 @@ public class HomeActivity extends FragmentActivity {
 
                             //初始化
                             setFont();
-                            setListener();
+//                            setListener();
                             //设置随机跳转
                             setDefaultItem(randomPos);
 
@@ -218,14 +218,14 @@ public class HomeActivity extends FragmentActivity {
         public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 //            setFont();
             setFontChange(position);
-            setListenerChange(position);
+//            setListenerChange(position);
         }
 
         @Override
         public void onPageSelected(int position) {
             Log.d("change","换了");
             setFontChange(position);
-            setListenerChange(position);
+//            setListenerChange(position);
         }
     }
 
