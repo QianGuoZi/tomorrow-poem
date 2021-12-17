@@ -104,8 +104,7 @@ public class BookActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String s = ((TextView) view).getText().toString();
                 if(s.equals("朝代◿")==false)    getDynasty(s);
-
-//                Toast.makeText(BookActivity.this, "选中：" + s, Toast.LENGTH_SHORT).show();
+                else getAllContent();
             }
 
             @Override
@@ -189,6 +188,8 @@ public class BookActivity extends AppCompatActivity {
                     public void onResponse(JSONObject response) {
                         // do anything with response
                         try{
+                            resultLinearLayout = findViewById(R.id.result_Linear);
+                            resultLinearLayout.removeAllViews();
                             //处理获取的结果
                             status = response.getInt("status");
                             msg = response.getString("msg");

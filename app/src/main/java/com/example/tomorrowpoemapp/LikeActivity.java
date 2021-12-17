@@ -3,8 +3,12 @@ package com.example.tomorrowpoemapp;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.androidnetworking.AndroidNetworking;
@@ -18,6 +22,9 @@ import org.json.JSONObject;
 
 public class LikeActivity extends AppCompatActivity {
 
+    private ImageView likeButton;
+    private Activity likeActivity;
+
     private Integer status;
     private String msg;
     private JSONArray data;
@@ -26,12 +33,14 @@ public class LikeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_like);
+        likeActivity = this;
         getContent();
+        getBack();
     }
 
 
     private void getContent(){
-        AndroidNetworking.get("https://service-eanmnyo2-1305624698.gz.apigw.tencentcs.com/release/api/poem/all")
+        AndroidNetworking.get("https://service-eanmnyo2-1305624698.gz.apigw.tencentcs.com/release/api/like")
                 .setPriority(Priority.HIGH)
                 .build()
                 .getAsJSONObject(new JSONObjectRequestListener() {
@@ -68,5 +77,15 @@ public class LikeActivity extends AppCompatActivity {
                         Toast.makeText(LikeActivity.this,"Network error!", Toast.LENGTH_SHORT).show();
                     }
                 });
+    }
+
+    private void getBack(){
+        likeButton = findViewById(R.id.like_like_button);
+        likeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                likeActivity.finish();
+            }
+        });
     }
 }
