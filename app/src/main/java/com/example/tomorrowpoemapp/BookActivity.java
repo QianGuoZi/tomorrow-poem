@@ -14,6 +14,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -38,6 +39,7 @@ public class BookActivity extends AppCompatActivity {
     private Spinner themeSpinner;
     private Spinner typeSpinner;
     private ImageView searchButton;
+    private LinearLayout resultLinearLayout;
 
     private Integer status;
     private String msg;
@@ -98,6 +100,8 @@ public class BookActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String s = ((TextView) view).getText().toString();
+                if(s.equals("朝代")==false)    getDynasty(s);
+
                 Toast.makeText(BookActivity.this, "选中：" + s, Toast.LENGTH_SHORT).show();
             }
 
@@ -197,6 +201,48 @@ public class BookActivity extends AppCompatActivity {
                                 fm.beginTransaction().add(R.id.result_Linear,
                                         SearchResultFragment.newInstance(dataI.getString("title"),
                                         dataI.getString("author"),dataI.getInt("star"))
+                                ).commit();
+                                fm.executePendingTransactions();
+                            }
+                        }catch (JSONException e){
+                            e.printStackTrace();
+                            Toast.makeText(BookActivity.this, "Data error!", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                    @Override
+                    public void onError(ANError error) {
+                        // handle error
+                        Toast.makeText(BookActivity.this,"Network error!", Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
+    private void getDynasty(String string){
+        AndroidNetworking.get("https://service-eanmnyo2-1305624698.gz.apigw.tencentcs.com/release/api/search/dynasty?dynasty="+string)
+                .setPriority(Priority.HIGH)
+                .build()
+                .getAsJSONObject(new JSONObjectRequestListener() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        // do anything with response
+                        try{
+                            resultLinearLayout = findViewById(R.id.result_Linear);
+                            resultLinearLayout.removeAllViews();
+                            //处理获取的结果
+                            status = response.getInt("status");
+                            msg = response.getString("msg");
+                            data = response.getJSONArray("data");
+                            Log.d("status",status.toString());
+                            Log.d("msg",msg);
+                            Log.d("data",data.toString());
+                            Integer size = data.length();
+                            for(int i=0;i<size;i++){
+                                JSONObject dataI = data.getJSONObject(i);
+                                Log.d("dataI",dataI.toString());
+                                FragmentManager fm = getSupportFragmentManager();
+                                fm.beginTransaction().add(R.id.result_Linear,
+                                        SearchResultFragment.newInstance(dataI.getString("title"),
+                                                dataI.getString("author"),dataI.getInt("star"))
                                 ).commit();
                                 fm.executePendingTransactions();
                             }
