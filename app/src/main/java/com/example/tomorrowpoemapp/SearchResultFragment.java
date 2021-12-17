@@ -25,9 +25,12 @@ import java.util.Map;
  */
 public class SearchResultFragment extends Fragment {
 
-    private String title;
-    private String author;
+    private String titleS;
+    private String authorS;
     private int star = 1;
+
+    private TextView title;
+    private TextView author;
     private HorizontalListView starList;
     SimpleAdapter simpleAdapter;
 
@@ -74,8 +77,8 @@ public class SearchResultFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            title = getArguments().getString(TITLE);
-            author = getArguments().getString(AUTHOR);
+            titleS = getArguments().getString(TITLE);
+            authorS = getArguments().getString(AUTHOR);
             star = getArguments().getInt(STAR);
         }
     }
@@ -87,7 +90,7 @@ public class SearchResultFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_card,container,false);
         starList = view.findViewById(R.id.star_list);
         simpleAdapter = new SimpleAdapter(getActivity(),getData(),
-                R.layout.card_star,new String[]{"image"},new int[]{R.id.star});
+                R.layout.detail_star,new String[]{"image"},new int[]{R.id.star});
         starList.setAdapter(simpleAdapter);
         return inflater.inflate(R.layout.fragment_search_result, container, false);
     }
@@ -96,13 +99,17 @@ public class SearchResultFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         if (getArguments() != null) {
-            title = getArguments().getString(TITLE);
-            author = getArguments().getString(AUTHOR);
+            titleS = getArguments().getString(TITLE);
+            authorS = getArguments().getString(AUTHOR);
             star = getArguments().getInt(STAR);
         }
+        title = view.findViewById(R.id.result_title);
+        author = view.findViewById(R.id.result_author);
+        title.setText(titleS);
+        author.setText(authorS);
         starList = view.findViewById(R.id.star_list);
         simpleAdapter = new SimpleAdapter(getActivity(),getData(),
-                R.layout.card_star,new String[]{"image"},new int[]{R.id.star});
+                R.layout.detail_star,new String[]{"image"},new int[]{R.id.star});
         starList.setAdapter(simpleAdapter);
 
     }

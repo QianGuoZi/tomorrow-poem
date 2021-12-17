@@ -43,6 +43,11 @@
     <color name="detail_bgc">#fffef8</color>
     <color name="detail_title">#5f605d</color>
 
+    <!--  SearchActivity  -->
+    <color name="search_block_bgc">#fffef8</color>
+    <color name="search_editText_bgc">#f7f7f9</color>
+    <color name="search_font">#84848a</color>
+
 
     <!--  BookActivity  -->
     <color name="book_title">#f6faff</color>

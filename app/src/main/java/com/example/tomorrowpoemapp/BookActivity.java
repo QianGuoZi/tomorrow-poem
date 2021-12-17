@@ -1,8 +1,11 @@
 package com.example.tomorrowpoemapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -10,9 +13,19 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.androidnetworking.AndroidNetworking;
+import com.androidnetworking.common.Priority;
+import com.androidnetworking.error.ANError;
+import com.androidnetworking.interfaces.JSONObjectRequestListener;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -24,6 +37,11 @@ public class BookActivity extends AppCompatActivity {
     private Spinner dynastySpinner;
     private Spinner themeSpinner;
     private Spinner typeSpinner;
+    private ImageView searchButton;
+
+    private Integer status;
+    private String msg;
+    private JSONArray data;
 
 
     @Override
@@ -35,8 +53,24 @@ public class BookActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().add(R.id.tabbar_fragment, tabbarFragment).commit();
         bindViews();
 
-        searchResultFragment = SearchResultFragment.newInstance("静夜思","李白",3);
-        getSupportFragmentManager().beginTransaction().add(R.id.search_result_fragment, searchResultFragment).commit();
+        getSearch();
+
+        getAllContent();
+
+
+    }
+
+    private void getSearch(){
+        //搜索功能
+        searchButton = findViewById(R.id.search_button);
+        searchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setClass(BookActivity.this,SearchActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void bindViews() {
@@ -137,4 +171,46 @@ public class BookActivity extends AppCompatActivity {
             }
         });
     }
+
+    //获取所有结果
+    private void getAllContent(){
+        AndroidNetworking.get("https://service-eanmnyo2-1305624698.gz.apigw.tencentcs.com/release/api/poem/all")
+                .setPriority(Priority.HIGH)
+                .build()
+                .getAsJSONObject(new JSONObjectRequestListener() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        // do anything with response
+                        try{
+                            //处理获取的结果
+                            status = response.getInt("status");
+                            msg = response.getString("msg");
+                            data = response.getJSONArray("data");
+                            Log.d("status",status.toString());
+                            Log.d("msg",msg);
+                            Log.d("data",data.toString());
+                            Integer size = data.length();
+                            for(int i=0;i<size;i++){
+                                JSONObject dataI = data.getJSONObject(i);
+                                Log.d("dataI",dataI.toString());
+                                FragmentManager fm = getSupportFragmentManager();
+                                fm.beginTransaction().add(R.id.result_Linear,
+                                        SearchResultFragment.newInstance(dataI.getString("title"),
+                                        dataI.getString("author"),dataI.getInt("star"))
+                                ).commit();
+                                fm.executePendingTransactions();
+                            }
+                        }catch (JSONException e){
+                            e.printStackTrace();
+                            Toast.makeText(BookActivity.this, "Data error!", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                    @Override
+                    public void onError(ANError error) {
+                        // handle error
+                        Toast.makeText(BookActivity.this,"Network error!", Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
 }
