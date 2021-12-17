@@ -41,6 +41,7 @@ public class BookActivity extends AppCompatActivity {
     private Spinner typeSpinner;
     private ImageView searchButton;
     private LinearLayout resultLinearLayout;
+    private ImageView likeButton;
 
     private Integer status;
     private String msg;
@@ -57,6 +58,7 @@ public class BookActivity extends AppCompatActivity {
         bindViews();
 
         getSearch();
+        getLike();
 
         getAllContent();
 
@@ -261,9 +263,17 @@ public class BookActivity extends AppCompatActivity {
                 });
     }
 
+    //获取我喜欢的
+    private void getLike(){
+        likeButton = findViewById(R.id.like_button);
+        likeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setClass(BookActivity.this,LikeActivity.class);
+                startActivity(intent);
+            }
+        });
 
-    private void getDetail(){
-//        searchResultFragment = resultLinearLayout.getChildAt(1);
     }
-
 }

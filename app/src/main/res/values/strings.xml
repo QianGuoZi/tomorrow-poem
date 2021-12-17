@@ -22,4 +22,7 @@
     <!--  SearchResultActivity  -->
     <string name="searchTitle">题目</string>
     <string name="searchAuthor">诗人</string>
+
+    <!--  BookActivity  -->
+    <string name="bookActivity">藏诗阁</string>
 </resources>
