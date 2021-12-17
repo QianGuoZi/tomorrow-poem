@@ -42,6 +42,8 @@ public class BookActivity extends AppCompatActivity {
     private ImageView searchButton;
     private LinearLayout resultLinearLayout;
     private ImageView likeButton;
+    private ImageView sortButton;
+    private Integer times;
 
     private Integer status;
     private String msg;
@@ -50,6 +52,7 @@ public class BookActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        times = 0;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book);
 
@@ -59,6 +62,7 @@ public class BookActivity extends AppCompatActivity {
 
         getSearch();
         getLike();
+        sort();
 
         getAllContent();
 
@@ -275,6 +279,66 @@ public class BookActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
 
+
+    private void sort(){
+        sortButton = findViewById(R.id.sort_button);
+        sortButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                times++;
+                if(times % 2 == 1){
+                    getSort();
+                    sortButton.setImageResource(R.mipmap.sort_up);
+                }
+                else{
+                    getAllContent();
+                    sortButton.setImageResource(R.mipmap.sort);
+                }
+            }
+        });
+    }
+
+    private void getSort(){
+        AndroidNetworking.get("https://service-eanmnyo2-1305624698.gz.apigw.tencentcs.com/release/api/sort/star")
+                .setPriority(Priority.HIGH)
+                .build()
+                .getAsJSONObject(new JSONObjectRequestListener() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        // do anything with response
+                        try{
+                            resultLinearLayout = findViewById(R.id.result_Linear);
+                            resultLinearLayout.removeAllViews();
+                            //处理获取的结果
+                            status = response.getInt("status");
+                            msg = response.getString("msg");
+                            data = response.getJSONArray("data");
+                            Log.d("status",status.toString());
+                            Log.d("msg",msg);
+                            Log.d("data",data.toString());
+                            Integer size = data.length();
+                            for(int i=0;i<size;i++){
+                                JSONObject dataI = data.getJSONObject(i);
+                                Log.d("dataI",dataI.toString());
+                                FragmentManager fm = getSupportFragmentManager();
+                                fm.beginTransaction().add(R.id.result_Linear,
+                                        SearchResultFragment.newInstance(dataI.getInt("id"),dataI.getString("title"),
+                                                dataI.getString("author"),dataI.getInt("star"))
+                                ).commit();
+                                fm.executePendingTransactions();
+                            }
+                        }catch (JSONException e){
+                            e.printStackTrace();
+                            Toast.makeText(BookActivity.this, "Data error!", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                    @Override
+                    public void onError(ANError error) {
+                        // handle error
+                        Toast.makeText(BookActivity.this,"Network error!", Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 }

@@ -12,17 +12,17 @@
         android:layout_width="match_parent"
         android:background="@color/book_title_bgc"
         android:layout_height="50dp">
+
         <TextView
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="20dp"
             android:text="@string/bookActivity"
             android:textColor="@color/book_title"
             android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_centerInParent="true"
-            android:layout_marginLeft="20dp"
-            />
+            android:textStyle="bold" />
         <ImageView
             android:id="@+id/search_button"
             android:layout_width="30dp"
