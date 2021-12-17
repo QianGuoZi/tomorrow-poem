@@ -25,7 +25,7 @@ public class UserActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
-        tabbarFragment = TabbarFragment.newInstance(1);
+        tabbarFragment = TabbarFragment.newInstance(4);
         getSupportFragmentManager().beginTransaction().add(R.id.tabbar_fragment, tabbarFragment).commit();
 
         //修改昵称按钮
