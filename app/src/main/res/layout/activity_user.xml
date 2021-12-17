@@ -4,12 +4,216 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UserActivity">
+    tools:context=".UserActivity"
+    android:background="@color/main_bgc" >
 
-    <TextView
+
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="User"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop ="30dp"
+        android:layout_marginBottom="10dp"
+        android:src="@mipmap/profile"/>
+
+    <TextView
+        android:id="@+id/user_name"
+        android:layout_width="99dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="10dp"
+        android:text="猫叫ing"
+        android:textColor="@color/main_text"
+        android:textSize="25sp" />
+    <View
+        android:id="@+id/line1"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#33000000"
+        android:layout_marginTop="50dp"
+        android:layout_below="@id/user_name"/>
+
+    <LinearLayout
+        android:id="@+id/button1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/line1">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:src="@mipmap/write" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="10dp"
+            android:text="修改昵称"
+            android:textColor="@color/main_text"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+
+
+    <View
+        android:id="@+id/line2"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#33000000"
+        android:layout_marginTop="1dp"
+        android:layout_below="@id/button1"/>
+
+    <LinearLayout
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/line2">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:src="@mipmap/share" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="10dp"
+            android:text="分享APP"
+            android:textColor="@color/main_text"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/line3"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#33000000"
+        android:layout_marginTop="1dp"
+        android:layout_below="@id/button2"/>
+
+    <LinearLayout
+        android:id="@+id/button3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/line3">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:src="@mipmap/suggestion" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="10dp"
+            android:text="意见与反馈"
+            android:textColor="@color/main_text"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/line4"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#33000000"
+        android:layout_marginTop="1dp"
+        android:layout_below="@id/button3"/>
+
+    <LinearLayout
+        android:id="@+id/button4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/line4">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:src="@mipmap/support" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="10dp"
+            android:text="支持我们"
+            android:textColor="@color/main_text"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/line5"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#33000000"
+        android:layout_marginTop="1dp"
+        android:layout_below="@id/button4"/>
+
+    <LinearLayout
+        android:id="@+id/button5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/line5">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:src="@mipmap/cut" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="10dp"
+            android:text="注销账号"
+            android:textColor="@color/main_text"
+            android:textSize="20sp" />
+    </LinearLayout>
+    <View
+        android:id="@+id/line6"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#33000000"
+        android:layout_marginTop="1dp"
+        android:layout_below="@id/button5"/>
+
+    <FrameLayout
+        android:id="@+id/tabbar_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+    </FrameLayout>
+
+    <Button
+        android:id="@+id/sign_out"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tabbar_fragment"
+        android:text="退出登录"
+        android:textSize="25dp"
         />
 
 </RelativeLayout>

@@ -11,15 +11,15 @@
         android:layout_width="match_parent"
         android:background="@color/tabbar_bgc"
         android:layout_height="50dp">
+
         <ImageView
             android:id="@+id/back_button_search"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@mipmap/back"
-            android:layout_centerInParent="true"
             android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
             android:layout_marginLeft="20dp"
-            />
+            android:src="@mipmap/back" />
     </RelativeLayout>
 
     <RelativeLayout

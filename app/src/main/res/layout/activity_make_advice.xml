@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChangeNameActivity"
+    android:background="@color/main_bgc">
+    <RelativeLayout
+        android:id="@+id/search_title"
+        android:layout_width="match_parent"
+        android:background="@color/tabbar_bgc"
+        android:layout_height="50dp">
+        <ImageView
+            android:id="@+id/back_button_make_advice"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="20dp"
+            android:src="@mipmap/back" />
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/tips"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="感谢您的反馈~"
+        android:textColor="@color/main_text"
+        android:textSize="20sp"
+        android:layout_below="@+id/search_title"
+        />
+    <View
+        android:id="@+id/line_below_tips"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#33000000"
+        android:layout_below="@id/tips"/>
+    <EditText
+        android:id="@+id/edit"
+        android:layout_width="fill_parent"
+        android:layout_height="200dp"
+        android:inputType="phone"
+        android:layout_below="@+id/line_below_tips"
+        android:background="@color/white"/>
+    <View
+        android:id="@+id/line_below_edit"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#33000000"
+        android:layout_below="@id/edit"/>
+
+</RelativeLayout>

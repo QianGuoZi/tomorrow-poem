@@ -34,7 +34,7 @@
     <color name="background">#e6e5df</color>
     <!--SearchResultFragment-->
     <color name="fonts">#616231</color>
-    <color name="searchResuilt_bgc">#f6faff</color>
+    <color name="searchResuilt_bgc"></color>
 
     <!-- HomeActivity -->
     <color name="appBackground">#fffef8</color>

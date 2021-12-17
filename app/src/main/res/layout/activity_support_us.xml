@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChangeNameActivity"
+    android:background="@color/main_bgc">
+    <RelativeLayout
+        android:id="@+id/search_title"
+        android:layout_width="match_parent"
+        android:background="@color/tabbar_bgc"
+        android:layout_height="50dp">
+        <ImageView
+            android:id="@+id/back_button_support_us"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="20dp"
+            android:src="@mipmap/back" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/Thanks"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="135dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/search_title"
+        android:text="感谢支持！"
+        android:textSize="30dp"
+        android:textColor="@color/main_text"/>
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/Thanks"
+        android:src="@mipmap/money"/>
+</RelativeLayout>

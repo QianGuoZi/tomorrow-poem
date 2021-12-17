@@ -12,6 +12,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.NoActionBar">
         <activity
+            android:name=".UserLogInActivity"
+            android:exported="true" />
+        <activity
+            android:name=".SignInActivity"
+            android:exported="true" />
+        <activity
+            android:name=".SupportUsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".MakeAdviceActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ChangeNameActivity"
+            android:exported="true" />
+        <activity
             android:name=".DetailActivity"
             android:exported="true" />
         <activity
