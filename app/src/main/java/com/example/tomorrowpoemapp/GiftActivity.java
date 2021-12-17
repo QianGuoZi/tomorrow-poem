@@ -144,7 +144,7 @@ public class GiftActivity extends AppCompatActivity {
                             Log.d("data",data.toString());
 
                             int randomNumber = (int)(Math.random() * 7);
-                            cardFragment = CardFragment.newInstance(data.getJSONObject(randomNumber).getString("sentence"),
+                            cardFragment = CardFragment.newInstance(data.getJSONObject(randomNumber).getInt("id"),data.getJSONObject(randomNumber).getString("sentence"),
                                         data.getJSONObject(randomNumber).getInt("star"),false);
 
                             gridLayout.setVisibility(View.INVISIBLE);

@@ -27,6 +27,12 @@
             android:name=".ChangeNameActivity"
             android:exported="true" />
         <activity
+            android:name=".LikeActivity"
+            android:exported="true" />
+        <activity
+            android:name=".SearchResultActivity"
+            android:exported="true" />
+        <activity
             android:name=".DetailActivity"
             android:exported="true" />
         <activity

@@ -34,7 +34,7 @@
     <color name="background">#e6e5df</color>
     <!--SearchResultFragment-->
     <color name="fonts">#616231</color>
-    <color name="searchResuilt_bgc"></color>
+    <color name="searchResuilt_bgc">#fffefb</color>
 
     <!-- HomeActivity -->
     <color name="appBackground">#fffef8</color>
@@ -52,6 +52,8 @@
     <color name="search_block_bgc">#fffef8</color>
     <color name="search_editText_bgc">#f7f7f9</color>
     <color name="search_font">#84848a</color>
+    <color name="search_sure_bgc">#373834</color>
+    <color name="search_sure_font">#fffef8</color>
 
 
     <!--  BookActivity  -->
@@ -61,4 +63,10 @@
     <color name="sort_font">#606060</color>
     <color name="spinner_bgc">#f6faff</color>
     <color name="spinner_font">#606060</color>
+
+    <!--  SearchResultActivity  -->
+    <color name="search_result_button_bgc">#fffef8</color>
+    <color name="search_result_button_font_selected">#373834</color>
+    <color name="search_result_button_font_not">#81838f</color>
+    <color name="search_result_bgc">#fffef8</color>
 </resources>

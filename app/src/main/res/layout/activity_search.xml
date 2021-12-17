@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/search_block_bgc"
     tools:context=".SearchActivity">
     <RelativeLayout
         android:id="@+id/search_title"
@@ -22,26 +23,42 @@
             android:src="@mipmap/back" />
     </RelativeLayout>
 
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/serch_block"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="54dp"
         android:layout_below="@id/search_title"
         android:background="@color/search_block_bgc">
+
+        <ImageView
+            android:id="@+id/editText_search_button"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:src="@mipmap/search_edit" />
 
         <EditText
             android:id="@+id/editTextSearch"
             android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="20dp"
+            android:layout_height="44dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
             android:background="@color/search_editText_bgc"
-            android:ems="10"
-            android:hint="默认提示文本"
+            android:ems="13"
             android:inputType="text"
             android:selectAllOnFocus="true"
-            android:textColor="@color/search_font"
-            android:textColorHint="#95A1AA" />
-    </RelativeLayout>
+            android:textColor="@color/search_font" />
+
+        <Button
+            android:id="@+id/search_sure_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="10dp"
+            android:text="@string/search_sure"
+            android:textColor="@color/search_sure_font"
+            android:textSize="18sp" />
+    </LinearLayout>
 
 </RelativeLayout>

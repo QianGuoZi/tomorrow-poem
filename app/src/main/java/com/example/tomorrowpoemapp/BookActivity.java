@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -40,6 +41,7 @@ public class BookActivity extends AppCompatActivity {
     private Spinner typeSpinner;
     private ImageView searchButton;
     private LinearLayout resultLinearLayout;
+    private ImageView likeButton;
 
     private Integer status;
     private String msg;
@@ -56,6 +58,7 @@ public class BookActivity extends AppCompatActivity {
         bindViews();
 
         getSearch();
+        getLike();
 
         getAllContent();
 
@@ -82,7 +85,7 @@ public class BookActivity extends AppCompatActivity {
 
 
         ArrayList<String> dynastyList = new ArrayList<String>();
-        dynastyList.add("朝代");
+        dynastyList.add("朝代◿");
         dynastyList.add("三国");
         dynastyList.add("魏晋南北朝");
         dynastyList.add("唐");
@@ -100,9 +103,9 @@ public class BookActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String s = ((TextView) view).getText().toString();
-                if(s.equals("朝代")==false)    getDynasty(s);
+                if(s.equals("朝代◿")==false)    getDynasty(s);
 
-                Toast.makeText(BookActivity.this, "选中：" + s, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(BookActivity.this, "选中：" + s, Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -112,7 +115,7 @@ public class BookActivity extends AppCompatActivity {
 
 
         ArrayList<String> themeList = new ArrayList<String>();
-        themeList.add("题材");
+        themeList.add("题材◿");
         themeList.add("田园");
         themeList.add("边塞");
         themeList.add("闺怨");
@@ -136,7 +139,7 @@ public class BookActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String s = ((TextView) view).getText().toString();
-                Toast.makeText(BookActivity.this, "选中：" + s, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(BookActivity.this, "选中：" + s, Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -146,7 +149,7 @@ public class BookActivity extends AppCompatActivity {
 
 
         ArrayList<String> typeList = new ArrayList<String>();
-        typeList.add("体裁");
+        typeList.add("体裁◿");
         typeList.add("古体诗");
         typeList.add("乐府诗");
         typeList.add("五言律诗");
@@ -167,7 +170,7 @@ public class BookActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String s = ((TextView) view).getText().toString();
-                Toast.makeText(BookActivity.this, "选中：" + s, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(BookActivity.this, "选中：" + s, Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -199,7 +202,7 @@ public class BookActivity extends AppCompatActivity {
                                 Log.d("dataI",dataI.toString());
                                 FragmentManager fm = getSupportFragmentManager();
                                 fm.beginTransaction().add(R.id.result_Linear,
-                                        SearchResultFragment.newInstance(dataI.getString("title"),
+                                        SearchResultFragment.newInstance(dataI.getInt("id"),dataI.getString("title"),
                                         dataI.getString("author"),dataI.getInt("star"))
                                 ).commit();
                                 fm.executePendingTransactions();
@@ -217,6 +220,7 @@ public class BookActivity extends AppCompatActivity {
                 });
     }
 
+    //获取筛选结果
     private void getDynasty(String string){
         AndroidNetworking.get("https://service-eanmnyo2-1305624698.gz.apigw.tencentcs.com/release/api/search/dynasty?dynasty="+string)
                 .setPriority(Priority.HIGH)
@@ -241,7 +245,7 @@ public class BookActivity extends AppCompatActivity {
                                 Log.d("dataI",dataI.toString());
                                 FragmentManager fm = getSupportFragmentManager();
                                 fm.beginTransaction().add(R.id.result_Linear,
-                                        SearchResultFragment.newInstance(dataI.getString("title"),
+                                        SearchResultFragment.newInstance(dataI.getInt("id"),dataI.getString("title"),
                                                 dataI.getString("author"),dataI.getInt("star"))
                                 ).commit();
                                 fm.executePendingTransactions();
@@ -259,4 +263,17 @@ public class BookActivity extends AppCompatActivity {
                 });
     }
 
+    //获取我喜欢的
+    private void getLike(){
+        likeButton = findViewById(R.id.like_button);
+        likeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setClass(BookActivity.this,LikeActivity.class);
+                startActivity(intent);
+            }
+        });
+
+    }
 }

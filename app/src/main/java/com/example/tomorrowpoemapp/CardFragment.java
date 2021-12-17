@@ -1,5 +1,6 @@
 package com.example.tomorrowpoemapp;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 
@@ -7,13 +8,19 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import org.json.JSONException;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -29,11 +36,14 @@ public class CardFragment extends Fragment {
 
     private String content;
     private int star = 1;
+    private Integer id;
     private Boolean canBeDeleted = true;
     private HorizontalListView starList;
     SimpleAdapter simpleAdapter;
 
     private TextView cardContent;
+    private RelativeLayout cardLayout;
+    private ImageView cardDelete;
     ArrayList<Star> listData = new ArrayList<>();
     View contentView;
     ImageView cardDeleted;
@@ -44,6 +54,7 @@ public class CardFragment extends Fragment {
     private static final String CONTENT = "content";
     private static final String STAR = "star";
     private static final String DELETED = "deleted";
+    private static final String ID = "id";
 
     public CardFragment() {
         // Required empty public constructor
@@ -58,9 +69,10 @@ public class CardFragment extends Fragment {
      * @param canBeDeleted Parameter 3.
      * @return A new instance of fragment CardFragment.
      */
-    public static CardFragment newInstance(String content, int star, Boolean canBeDeleted) {
+    public static CardFragment newInstance(int id,String content, int star, Boolean canBeDeleted) {
         CardFragment fragment = new CardFragment();
         Bundle args = new Bundle();
+        args.putInt(ID,id);
         args.putString(CONTENT, content);
         args.putInt(STAR, star);
         args.putBoolean(DELETED, canBeDeleted);
@@ -78,6 +90,7 @@ public class CardFragment extends Fragment {
             content = getArguments().getString(CONTENT);
             star = getArguments().getInt(STAR);
             canBeDeleted = getArguments().getBoolean(DELETED);
+            id = getArguments().getInt(ID);
         }
     }
 
@@ -97,6 +110,7 @@ public class CardFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         if (getArguments() != null) {
+            id = getArguments().getInt(ID);
             content = getArguments().getString(CONTENT);
             star = getArguments().getInt(STAR);
             canBeDeleted = getArguments().getBoolean(DELETED);
@@ -113,6 +127,29 @@ public class CardFragment extends Fragment {
         simpleAdapter = new SimpleAdapter(getActivity(),getData(),
                 R.layout.card_star,new String[]{"image"},new int[]{R.id.star});
         starList.setAdapter(simpleAdapter);
+
+        cardLayout = view.findViewById(R.id.card_layout);
+        cardLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                Toast.makeText(getActivity(),"id"+id.toString(),Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent();
+                intent.setClass(getActivity(), DetailActivity.class);
+                intent.putExtra("id",id);
+                Log.d("idTrans",id.toString());
+                startActivity(intent);
+            }
+        });
+
+        cardDelete = view.findViewById(R.id.card_delete);
+        cardDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().finish();
+            }
+        });
+
+
 
     }
 

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/book_bgc"
-    tools:context=".BookActivity">
-
+    tools:context=".LikeActivity">
     <RelativeLayout
         android:id="@+id/book_title"
         android:layout_width="match_parent"
@@ -16,7 +16,7 @@
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/bookActivity"
+            android:text="藏诗阁"
             android:textColor="@color/book_title"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -39,7 +39,7 @@
             android:layout_toLeftOf="@id/sort_button"
             android:layout_centerInParent="true"
             android:layout_marginRight="10dp"
-            android:src="@mipmap/like_white"
+            android:src="@mipmap/like_red"
             />
         <ImageView
             android:id="@+id/sort_button"
@@ -59,72 +59,27 @@
         android:layout_alignParentBottom="true">
     </FrameLayout>
 
-    <LinearLayout
-        android:id="@+id/sort_Linear"
-        android:background="@color/spinner_bgc"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center|center|center"
-        android:layout_below="@id/book_title">
-        <Spinner
-            android:id="@+id/dynasty_spinner"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@null"
-            android:gravity="center"
-            android:layout_weight="1"
-            />
-        <View
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:background="#33000000"
-            android:layout_gravity="center_horizontal" />
-        <Spinner
-            android:id="@+id/theme_spinner"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@null"
-            android:gravity="center"
-            android:layout_weight="1"
-            />
-        <View
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:background="#33000000"
-            android:layout_gravity="center_horizontal" />
-        <Spinner
-            android:id="@+id/type_spinner"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@null"
-            android:gravity="center"
-            android:layout_weight="1"
-            />
-
-    </LinearLayout>
     <View
-        android:id="@+id/viewLine"
+        android:id="@+id/like_viewLine"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="#33000000"
-        android:layout_below="@id/sort_Linear"/>
+        android:layout_below="@id/book_title"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/viewLine">
+        android:layout_below="@id/like_viewLine">
         <ScrollView
-            android:id="@+id/result_scrollView"
+            android:id="@+id/like_result_scrollView"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <LinearLayout
-                android:id="@+id/result_Linear"
+                android:id="@+id/like_result_Linear"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
             </LinearLayout>
         </ScrollView>
     </LinearLayout>
-
 
 </RelativeLayout>
