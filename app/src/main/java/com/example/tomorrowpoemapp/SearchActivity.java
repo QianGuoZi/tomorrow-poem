@@ -59,7 +59,7 @@ public class SearchActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String text = editTextSearch.getText().toString();
                 Intent intent = new Intent();
-                intent.setClass(SearchActivity.this, DetailActivity.class);
+                intent.setClass(SearchActivity.this, SearchResultActivity.class);
                 intent.putExtra("text",text);
                 Log.d("text",text.toString());
                 startActivity(intent);

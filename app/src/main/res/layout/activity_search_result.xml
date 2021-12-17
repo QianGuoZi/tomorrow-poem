@@ -1,9 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/search_result_bgc"
     tools:context=".SearchResultActivity">
+    <RelativeLayout
+        android:id="@+id/search_result_title"
+        android:layout_width="match_parent"
+        android:background="@color/tabbar_bgc"
+        android:layout_height="50dp">
+        <ImageView
+            android:id="@+id/back_button_search_result"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@mipmap/back"
+            android:layout_centerInParent="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="20dp"
+            />
+    </RelativeLayout>
+    <LinearLayout
+        android:id="@+id/search_result_buttons"
+        android:layout_below="@id/search_result_title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <Button
+            android:id="@+id/search_choose_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/searchTitle"
+            android:background="@color/search_result_button_bgc"
+            android:textColor="@color/search_result_button_font_selected"
+            android:layout_weight="1"
+            android:textSize="18sp"/>
+        <Button
+            android:id="@+id/search_choose_author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/searchAuthor"
+            android:background="@color/search_result_button_bgc"
+            android:textColor="@color/search_result_button_font_not"
+            android:layout_weight="1"
+            android:textSize="18sp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_below="@id/search_result_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ScrollView
+            android:id="@+id/search_result_scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:id="@+id/search_result_Linear"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

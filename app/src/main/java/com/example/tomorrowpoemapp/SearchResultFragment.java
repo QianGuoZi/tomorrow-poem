@@ -124,7 +124,6 @@ public class SearchResultFragment extends Fragment {
         resultRelativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getActivity(),"haha",Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent();
                 intent.setClass(getActivity(), DetailActivity.class);
                 intent.putExtra("id",id);

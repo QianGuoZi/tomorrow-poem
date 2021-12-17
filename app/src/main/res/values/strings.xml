@@ -18,4 +18,8 @@
 
     <!--  SearchActivity  -->
     <string name="search_sure">搜索</string>
+
+    <!--  SearchResultActivity  -->
+    <string name="searchTitle">题目</string>
+    <string name="searchAuthor">诗人</string>
 </resources>
