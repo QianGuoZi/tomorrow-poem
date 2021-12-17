@@ -71,7 +71,6 @@ public class HomeActivity extends FragmentActivity {
 
         AndroidNetworking.initialize(getApplicationContext());
         getContent();
-
     }
 
     //向服务器请求结果

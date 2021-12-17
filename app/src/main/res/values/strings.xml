@@ -11,4 +11,8 @@
     <!--  CardFragment  -->
     <string name="star_collection">收集度</string>
     <string name="card_deleted">取消</string>
+
+    <!-- GiftFragment -->
+    <string name="gift_title">请抽取一张卡片</string>
+    <string name="gift_button">就决定是你了</string>
 </resources>

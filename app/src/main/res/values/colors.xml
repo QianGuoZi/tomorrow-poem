@@ -41,4 +41,10 @@
     <!--  DetailActivity  -->
     <color name="detail_bgc">#fffef8</color>
     <color name="detail_title">#5f605d</color>
+
+    <!-- GiftActivity -->
+    <color name="gift_bgc">#FFFEF8</color>
+    <color name="gift_text">#575824</color>
+    <color name="gift_button">#373834</color>
+    <color name="gift_button_text">#F6FAFF</color>
 </resources>
