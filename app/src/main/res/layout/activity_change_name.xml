@@ -51,5 +51,12 @@
         android:layout_height="1dp"
         android:background="#33000000"
         android:layout_below="@id/edit"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="确认"
+        android:layout_below="@id/line_below_edit"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"/>
 
 </RelativeLayout>

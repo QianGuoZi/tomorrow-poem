@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import org.json.JSONException;
 
@@ -28,10 +29,42 @@ public class UserActivity extends AppCompatActivity {
         tabbarFragment = TabbarFragment.newInstance(4);
         getSupportFragmentManager().beginTransaction().add(R.id.tabbar_fragment, tabbarFragment).commit();
 
-        //修改昵称按钮
+        setChangeName();
+        setShareAPP();
+        setMakeAdvice();
+        setSupportUs();
+        setDeleteAccount();
+        setLogout();
+    }
+
+    //登录
+    private void getLogin(){
+
+
+    }
+
+    //注册
+    private void getLogon(){
+
+    }
+
+    //退出登录
+    private void setLogout(){
+        SignOut= findViewById(R.id.sign_out);
+        SignOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setClass(UserActivity.this, UserLogInActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    //修改昵称
+    private void setChangeName(){
         ChangeName= findViewById(R.id.button1);
-        Log.d("cardLayout", ChangeName.toString());
-        //到这了
+//        Log.d("cardLayout", ChangeName.toString());
 
         ChangeName.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,28 +74,22 @@ public class UserActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
 
-        //分享APP
+    //分享APP
+    private void setShareAPP(){
         ShareAPP = findViewById(R.id.button2);
-        Log.d("cardLayout", ShareAPP.toString());
-        //到这了
-
-        //分享APP的界面不知道怎么写qaq
         ShareAPP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent();
-                intent.setClass(UserActivity.this, ChangeNameActivity.class);
-                startActivity(intent);
+                Toast.makeText(UserActivity.this,"分享成功！",Toast.LENGTH_SHORT).show();
             }
         });
+    }
 
-        //意见与反馈
+    //反馈与意见
+    private void setMakeAdvice(){
         MakeAdvice = findViewById(R.id.button3);
-        Log.d("cardLayout", MakeAdvice.toString());
-        //到这了
-
-        //分享APP的界面不知道怎么写qaq
         MakeAdvice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -71,12 +98,11 @@ public class UserActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
 
-        //支持我们
+    //支持我们
+    private void setSupportUs(){
         SupportUs = findViewById(R.id.button4);
-        Log.d("cardLayout", SupportUs.toString());
-        //到这了
-
         SupportUs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -85,28 +111,15 @@ public class UserActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
 
+    //
+    private void setDeleteAccount(){
         //注销账户
         DeleteAccount = findViewById(R.id.button5);
         Log.d("cardLayout", DeleteAccount.toString());
-        //到这了
 
         DeleteAccount.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent();
-                intent.setClass(UserActivity.this, SupportUsActivity.class);
-                startActivity(intent);
-            }
-        });
-
-
-        //退出登录
-        SignOut= findViewById(R.id.sign_out);
-        Log.d("cardLayout", SignOut.toString());
-        //到这了
-
-        SignOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();

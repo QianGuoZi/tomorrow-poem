@@ -14,7 +14,7 @@
 
     <!-- GiftFragment -->
     <string name="gift_title">请抽取一张卡片</string>
-    <string name="gift_button">就决定是你了</string>
+    <string name="gift_button">就决定是你了！</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
@@ -34,4 +34,13 @@
 
     <!--  BookActivity  -->
     <string name="bookActivity">藏诗阁</string>
+
+    <!--  UserActivity  -->
+    <string name="userName">猫叫ing</string>
+    <string name="changeName">修改昵称</string>
+    <string name="shareAPP">分享APP</string>
+    <string name="feedback">意见与反馈</string>
+    <string name="supportUs">支持我们</string>
+    <string name="deleteName">注销账号</string>
+    <string name="logout">退出登录</string>
 </resources>

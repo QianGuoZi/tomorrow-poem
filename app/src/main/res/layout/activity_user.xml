@@ -7,54 +7,55 @@
     tools:context=".UserActivity"
     android:background="@color/main_bgc" >
 
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop ="30dp"
-        android:layout_marginBottom="10dp"
-        android:src="@mipmap/profile"/>
-
-    <TextView
-        android:id="@+id/user_name"
-        android:layout_width="99dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="200dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="10dp"
-        android:text="猫叫ing"
-        android:textColor="@color/main_text"
-        android:textSize="25sp" />
-    <View
-        android:id="@+id/line1"
+    <RelativeLayout
+        android:id="@+id/ReativeLayout1"
         android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="#33000000"
-        android:layout_marginTop="50dp"
-        android:layout_below="@id/user_name"/>
+        android:layout_height="180dp">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/profile"/>
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="99dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="170dp"
+            android:layout_centerVertical="true"
+            android:text="@string/userName"
+            android:textStyle="bold"
+            android:textColor="@color/main_text"
+            android:textSize="26sp" />
+        <View
+            android:id="@+id/line1"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#33000000"
+            android:layout_marginTop="50dp"
+            android:layout_alignParentBottom="true"
+            />
+    </RelativeLayout>
 
     <LinearLayout
         android:id="@+id/button1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/line1">
+        android:layout_height="60dp"
+        android:layout_below="@+id/ReativeLayout1">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="10dp"
+            android:layout_gravity="center_vertical"
             android:src="@mipmap/write" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginBottom="10dp"
-            android:text="修改昵称"
+            android:layout_gravity="center_vertical"
+            android:text="@string/changeName"
             android:textColor="@color/main_text"
             android:textSize="20sp" />
     </LinearLayout>
@@ -72,24 +73,22 @@
     <LinearLayout
         android:id="@+id/button2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_below="@+id/line2">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="10dp"
             android:src="@mipmap/share" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginBottom="10dp"
-            android:text="分享APP"
+            android:text="@string/shareAPP"
             android:textColor="@color/main_text"
             android:textSize="20sp" />
     </LinearLayout>
@@ -105,24 +104,22 @@
     <LinearLayout
         android:id="@+id/button3"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_below="@+id/line3">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="10dp"
+            android:layout_gravity="center_vertical"
             android:src="@mipmap/suggestion" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginBottom="10dp"
-            android:text="意见与反馈"
+            android:layout_gravity="center_vertical"
+            android:text="@string/feedback"
             android:textColor="@color/main_text"
             android:textSize="20sp" />
     </LinearLayout>
@@ -138,24 +135,22 @@
     <LinearLayout
         android:id="@+id/button4"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_below="@+id/line4">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="10dp"
+            android:layout_gravity="center_vertical"
             android:src="@mipmap/support" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginBottom="10dp"
-            android:text="支持我们"
+            android:layout_gravity="center_vertical"
+            android:text="@string/supportUs"
             android:textColor="@color/main_text"
             android:textSize="20sp" />
     </LinearLayout>
@@ -171,24 +166,22 @@
     <LinearLayout
         android:id="@+id/button5"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_below="@+id/line5">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="10dp"
+            android:layout_gravity="center_vertical"
             android:src="@mipmap/cut" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginBottom="10dp"
-            android:text="注销账号"
+            android:layout_gravity="center_vertical"
+            android:text="@string/deleteName"
             android:textColor="@color/main_text"
             android:textSize="20sp" />
     </LinearLayout>
@@ -209,11 +202,13 @@
 
     <Button
         android:id="@+id/sign_out"
-        android:layout_width="match_parent"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_above="@+id/tabbar_fragment"
-        android:text="退出登录"
-        android:textSize="25dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:text="@string/logout"
+        android:textSize="18sp"
         />
 
 </RelativeLayout>

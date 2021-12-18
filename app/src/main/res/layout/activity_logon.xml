@@ -1,18 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UserActivity"
-    android:background="@color/main_bgc" >
-
+    tools:context=".LogonActivity"
+    android:background="@color/main_bgc">
     <TextView
         android:id="@+id/LogIn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_marginTop="100dp"
-        android:text="登录"
+        android:text="注册"
         android:textColor="@color/main_text"
         android:textSize="35dp" />
 
@@ -22,7 +22,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/LogIn"
         >
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -78,35 +77,47 @@
             android:inputType="textPassword" />
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/forget"
-        android:layout_width="wrap_content"
+
+
+    <LinearLayout
+        android:id="@+id/password2Linear"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/passwordLinear"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="50dp"
-        android:text="忘记密码？"
-        android:textColor="@color/main_text"
-        android:textSize="16sp"
-        />
-    <TextView
-        android:id="@+id/logon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/forget"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="50dp"
-        android:layout_marginTop="3dp"
-        android:text="注册新账号"
-        android:textSize="16sp"
-        android:textColor="@color/main_text"/>
+        android:layout_below="@+id/passwordLinear">
+
+        <TextView
+            android:id="@+id/password2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/nickname"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:text="确认密码"
+            android:textColor="@color/main_text"
+            android:textSize="20dp" />
+
+        <EditText
+            android:id="@+id/edit3"
+            android:layout_width="258dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/LogIn"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/stroke"
+            android:textColor="@color/input_font"
+            android:inputType="textPassword" />
+    </LinearLayout>
+
+
     <Button
-        android:id="@+id/login_button"
+        android:id="@+id/logon_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_below="@id/logon"
+        android:layout_below="@id/password2Linear"
         android:layout_centerHorizontal="true"
         android:text="确认"
         android:textSize="18sp"/>
+
 </RelativeLayout>

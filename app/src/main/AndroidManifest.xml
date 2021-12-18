@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.NoActionBar">
         <activity
+            android:name=".LogonActivity"
+            android:exported="true" />
+        <activity
             android:name=".UserLogInActivity"
             android:exported="true" />
         <activity

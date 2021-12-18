@@ -101,17 +101,16 @@
         android:id="@+id/gift_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="@string/gift_button"
-        android:textSize="16sp"
-        android:background="@color/gift_button"
-        android:textColor="@color/gift_button_text"
         android:layout_below="@id/gift_grid"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
-        android:paddingRight="10dp"
+        android:layout_centerHorizontal="true"
+        android:background="@color/gift_button"
         android:paddingLeft="10dp"
-        />
+        android:paddingTop="5dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="5dp"
+        android:text="@string/gift_button"
+        android:textColor="@color/gift_button_text"
+        android:textSize="16sp" />
 
     <FrameLayout
         android:id="@+id/card_fragment"

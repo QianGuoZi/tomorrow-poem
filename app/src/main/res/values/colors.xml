@@ -69,4 +69,8 @@
     <color name="search_result_button_font_selected">#373834</color>
     <color name="search_result_button_font_not">#81838f</color>
     <color name="search_result_bgc">#fffef8</color>
+
+
+    <!--  UserLoginActivity  -->
+    <color name="input_font">#373834</color>
 </resources>
