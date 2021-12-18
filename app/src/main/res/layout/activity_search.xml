@@ -48,6 +48,8 @@
             android:ems="13"
             android:inputType="text"
             android:selectAllOnFocus="true"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             android:textColor="@color/search_font" />
 
         <Button
