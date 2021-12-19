@@ -40,6 +40,7 @@
             android:layout_below="@+id/LogIn"
             android:layout_marginTop="15dp"
             android:layout_marginLeft="10dp"
+            android:paddingLeft="10dp"
             android:background="@drawable/stroke"
             android:textColor="@color/input_font"
             android:inputType="text" />
@@ -73,6 +74,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginLeft="10dp"
             android:background="@drawable/stroke"
+            android:paddingLeft="10dp"
             android:textColor="@color/input_font"
             android:inputType="textPassword" />
     </LinearLayout>
@@ -104,6 +106,7 @@
             android:layout_below="@+id/LogIn"
             android:layout_marginTop="5dp"
             android:layout_marginLeft="10dp"
+            android:paddingLeft="10dp"
             android:background="@drawable/stroke"
             android:textColor="@color/input_font"
             android:inputType="textPassword" />

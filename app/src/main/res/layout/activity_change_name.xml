@@ -42,6 +42,7 @@
         android:id="@+id/edit"
         android:layout_width="fill_parent"
         android:layout_height="40dp"
+        android:paddingLeft="10dp"
         android:inputType="phone"
         android:layout_below="@+id/line_below_tips"
         android:background="@color/white"/>
